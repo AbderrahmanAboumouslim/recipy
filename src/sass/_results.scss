@@ -1,0 +1,52 @@
+.results {
+  margin-top: 4rem;
+
+  &__title {
+    font-size: 1.8rem;
+  }
+
+  .meal {
+    margin-top: 2.4rem 0;
+
+    &__item {
+      border-radius: 1.4rem;
+      overflow: hidden;
+      box-shadow: 0 4px 21px -12px rgba(0, 0, 0, 0.79);
+      margin: 2rem 0;
+
+      .meal__image {
+        width: 400px;
+        height: 300px;
+
+        img {
+          width: 100%;
+          height: 100%;
+          display: block;
+        }
+      }
+
+      .meal__info {
+        padding: 1.5rem 0.5rem;
+
+        h3 {
+          font-size: 1.4rem;
+        }
+
+        p {
+          letter-spacing: 0.2rem;
+          width: fit-content;
+          margin: 0 auto;
+        }
+      }
+    }
+
+    @media only screen and (min-width: $bp-medium) {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      column-gap: 2rem;
+    }
+    @media only screen and (min-width: 992px) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+}

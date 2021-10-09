@@ -1,0 +1,93 @@
+.head {
+  display: flex;
+  //   align-items: center;
+  justify-content: center;
+  flex-direction: column;
+
+  &__title {
+    font-size: clamp(1.5rem, 10vw, 2.5rem);
+  }
+
+  &__quote {
+    border-left: 2px solid $color-primary;
+    border-right: 2px solid $color-primary;
+    border-radius: 9px;
+    margin: 1rem;
+    padding: 0.4rem;
+
+    &-text {
+      color: $color-primary;
+    }
+
+    &-author {
+      font-style: italic;
+      color: $color-grey-light-3;
+    }
+  }
+
+  .search {
+    background-color: #fff;
+    border-radius: 10rem;
+    display: flex;
+    align-items: stretch;
+    transition: all 0.3s;
+
+    &:focus-within {
+      transform: translateY(-2px);
+      box-shadow: 0 0.7rem 3rem rgba($color-grey-dark-1, 0.08);
+    }
+
+    &__field {
+      width: 100%;
+      padding: 0 1rem;
+      font-size: 1.8rem;
+      font-family: inherit;
+      outline: 0;
+      border: 1px solid $color-primary;
+      color: $color-grey-dark-1;
+      border-top-left-radius: 2rem;
+      border-bottom-left-radius: 2rem;
+
+      &:focus {
+        outline: none;
+      }
+
+      &::placeholder {
+        color: $color-grey-light-3;
+        font-size: 1.3rem;
+      }
+
+      @media only screen and (max-width: $bp-medium) {
+        &::placeholder {
+          color: white;
+        }
+      }
+    }
+    &__button {
+      font-family: inherit;
+      cursor: pointer;
+      width: 55px;
+      height: 55px;
+      background: $gradient;
+      color: #fff;
+      border: none;
+      border-top-right-radius: 2rem;
+      border-bottom-right-radius: 2rem;
+      padding: 1.5rem 0rem;
+      font-size: 1.5rem;
+      font-weight: 600;
+
+      svg {
+        height: 2.25rem;
+        width: 2.25rem;
+        fill: #fff;
+      }
+    }
+
+    @media only screen and (min-width: $bp-small) {
+      width: 540px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+}
