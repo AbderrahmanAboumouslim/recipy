@@ -1,7 +1,11 @@
+import { RES_PAGE } from "./config.js";
+
 export const state = {
     search: {
         query: '',
         results: [],
+        page:1,
+        res_page: RES_PAGE,
     },
     recipe: {},
 
@@ -25,6 +29,8 @@ export const searchResult = async (query)=> {
             }
         })
         // console.log(state.search.results);
+
+        state.search.page = 1;
     }catch(err) {
         throw err;
     }
@@ -53,4 +59,15 @@ console.log(state.recipe);
         throw err;
     }
 }
+
+// results per page
+export const resultPage = (page = state.search.page)=> {
+    state.search.page = page;
+    const indexStart = (page - 1) * state.search.res_page;
+    const indexEnd = page * state.search.res_page;
+
+    return state.search.results.slice(indexStart, indexEnd)
+}
+
+//
 

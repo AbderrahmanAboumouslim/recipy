@@ -10,7 +10,8 @@ class RecipeView extends view{
 
     _addHandlerHideRecipe(){
         this._parentElement.addEventListener('click', (e)=> {
-            e.preventDefault()
+            // e.preventDefault() will stop the <a> to get the video
+            
             const parent = e.target.parentElement;
             const prevEl = parent.previousSibling.previousSibling
             if(e.target.classList.contains('btn--close-modal')){
