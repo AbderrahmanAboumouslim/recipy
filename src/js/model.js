@@ -13,7 +13,7 @@ export const searchResult = async (query)=> {
     try{
         state.search.query = query;
         // const resp = await fetch(`http://www.themealdb.com/api/json/v1/1/filter.php?i=${query}`);
-        const resp = await fetch(`http://www.themealdb.com/api/json/v1/1/search.php?s=${query}`);
+        const resp = await fetch(`https://www.themealdb.com/api/json/v1/1/search.php?s=${query}`);
         const data = await resp.json();
         console.log(data);
 
@@ -33,7 +33,7 @@ export const searchResult = async (query)=> {
 
 export const showRecipe = async (mealItem)=> {
     try{
-        const resp =await fetch(`http://www.themealdb.com/api/json/v1/1/lookup.php?i=${mealItem}`)
+        const resp =await fetch(`https://www.themealdb.com/api/json/v1/1/lookup.php?i=${mealItem}`)
         const data = await resp.json()
         console.log(data);
         const meal = data.meals[0];

@@ -34,6 +34,13 @@ const controlShowRecipe = async (mealItem)=> {
     }
 }
 
+
+
+
+   
+
+
+
 const init = ()=> {
     searchView.addHandlerSearch(controlSearch)
     resultView.addHandlerShowRecipe(controlShowRecipe)
