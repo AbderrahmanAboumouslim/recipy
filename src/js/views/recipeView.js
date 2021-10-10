@@ -12,9 +12,11 @@ class RecipeView extends view{
         this._parentElement.addEventListener('click', (e)=> {
             e.preventDefault()
             const parent = e.target.parentElement;
+            const prevEl = parent.previousSibling.previousSibling
             if(e.target.classList.contains('btn--close-modal')){
                 
                 parent.classList.toggle('hidden');
+                prevEl.classList.toggle('hidden');
             }
         })
         
