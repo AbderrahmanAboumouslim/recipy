@@ -9,7 +9,6 @@ const controlSearch = async ()=> {
         resultView.renderSpinner()
         const query = searchView.getQuery();
         if(!query) return;
-        console.log(query);
         
         await model.searchResult(query);
 
@@ -31,8 +30,19 @@ const controlPagination = (attributePage)=> {
 
 const controlShowRecipe = async (mealItem)=> {
     try{
+        
         await model.showRecipe(mealItem)
         // console.log(mealItem);
+        recipeView.render(model.state.recipe)
+        window.history.pushState(null, '', `#${mealItem}`)
+    }catch(err){
+        console.error(err);
+    }
+}
+const controlUrlId = async ()=> {
+    try{   
+        let id = window.location.hash.slice(1)
+        await model.showRecipe(id)
         recipeView.render(model.state.recipe)
     }catch(err){
         console.error(err);
@@ -43,6 +53,7 @@ const init = ()=> {
     searchView.addHandlerSearch(controlSearch)
     resultView.addHandlerShowRecipe(controlShowRecipe)
     pagination.addHandlerPagination(controlPagination)
+    recipeView.addHandlerUrlId(controlUrlId)
 }
 
 init();

@@ -2,6 +2,11 @@ import view from './View.js'
 class RecipeView extends view{
     _parentElement = document.querySelector('.showme');
     
+addHandlerUrlId(handler){
+    ['hashchange', 'load'].forEach(ev => {
+        window.addEventListener(ev, handler)
+    })
+}
 
     constructor(){
         super()

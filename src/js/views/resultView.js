@@ -10,7 +10,6 @@ class ResultView extends view {
             if(e.target.classList.contains('btn--open-modal')){
                 let mealItemPath = e.target.parentElement.parentElement;
                 const mealItem = +mealItemPath.dataset.id;
-                console.log(mealItem);
                 handler(mealItem)
             }
             
