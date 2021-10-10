@@ -13,6 +13,7 @@ class RecipeView extends view{
             e.preventDefault()
             const parent = e.target.parentElement;
             if(e.target.classList.contains('btn--close-modal')){
+                
                 parent.classList.toggle('hidden');
             }
         })
@@ -21,6 +22,7 @@ class RecipeView extends view{
 
     _generateMarkup(){
         return `
+                    <div class="overlay"></div>
                     <div class="show modal">
                         <button class="btn--close-modal">&times;</button>
                         <div class="meal__content">
