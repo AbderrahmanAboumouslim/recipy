@@ -37,9 +37,9 @@ export const searchResult = async (query)=> {
 }
 
 
-export const showRecipe = async (mealItem)=> {
+export const showRecipe = async (id)=> {
     try{
-        const resp =await fetch(`https://www.themealdb.com/api/json/v1/1/lookup.php?i=${mealItem}`)
+        const resp =await fetch(`https://www.themealdb.com/api/json/v1/1/lookup.php?i=${id}`)
         const data = await resp.json()
         console.log(data);
         const meal = data.meals[0];

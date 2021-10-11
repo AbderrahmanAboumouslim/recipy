@@ -15,6 +15,8 @@ const controlSearch = async ()=> {
         // resultView.render(model.state.search.results)
         resultView.render(model.resultPage())
         pagination.render(model.state.search)
+
+        window.location.hash = '';
         
     }catch(err){
         console.error(err);
@@ -28,13 +30,13 @@ const controlPagination = (attributePage)=> {
 }
 
 
-const controlShowRecipe = async (mealItem)=> {
+const controlShowRecipe = async (id)=> {
     try{
         
-        await model.showRecipe(mealItem)
+        await model.showRecipe(id)
         // console.log(mealItem);
         recipeView.render(model.state.recipe)
-        window.history.pushState(null, '', `#${mealItem}`)
+        window.history.pushState(null, '', `#${id}`)
     }catch(err){
         console.error(err);
     }
