@@ -1,4 +1,5 @@
 import view from './View.js'
+import icons from 'url:../../img/icons.svg'
 class RecipeView extends view{
     _parentElement = document.querySelector('.showme');
     
@@ -29,8 +30,7 @@ addHandlerUrlId(handler){
     }
 
     _generateMarkup(){
-        return `
-                    <div class="overlay"></div>
+        return `<div class="overlay"></div>
                     <div class="show modal">
                         <button class="btn--close-modal">&times;</button>
                         <div class="meal__content">

@@ -40,22 +40,28 @@
   display: none;
 }
 
+.message,
 .error {
   max-width: 40rem;
   margin: 0 auto;
   padding: 5rem 4rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
 }
 
+.message svg,
 .error svg {
   height: 3rem;
   width: 3rem;
   fill: #f38e82;
+  -webkit-transform: translateY(-0.3rem);
   transform: translateY(-0.3rem);
 }
 
+.message p,
 .error p {
-  margin: 0 auto;
+  margin-left: 1.5rem;
   font-size: 1.8rem;
   line-height: 1.5;
   font-weight: 600;

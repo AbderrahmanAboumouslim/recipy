@@ -9,6 +9,11 @@
   cursor: pointer;
   border: none;
   background: none;
+  transition: all 0.2s ease-in-out;
+
+  &:hover {
+    transform: scale(1.09);
+  }
 }
 
 .overlay {

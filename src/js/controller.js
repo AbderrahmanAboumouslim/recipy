@@ -8,7 +8,7 @@ const controlSearch = async ()=> {
     try{
         resultView.renderSpinner()
         const query = searchView.getQuery();
-        if(!query) return;
+        if(!query || query === '') return;
         await model.searchResult(query);
         // resultView.render(model.state.search.results)
         resultView.render(model.resultPage())
