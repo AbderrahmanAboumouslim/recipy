@@ -8,6 +8,7 @@ export const state = {
         res_page: RES_PAGE,
     },
     recipe: {},
+    bookmarks: [],
 
 
 
@@ -70,4 +71,16 @@ export const resultPage = (page = state.search.page)=> {
 }
 
 //
+export const addBookmark = (recipe)=> {
+    state.bookmarks.push(recipe);
+    if(recipe.id === state.recipe.id) state.recipe.bookmarked = true;
+    console.log(state.recipe);
+}
 
+export const removeBookmark = (id)=> {
+    const index = state.bookmarks.some(bookmark => bookmark.id === id)
+    state.bookmarks.splice(index, 1)
+    if(id === state.recipe.id) state.recipe.bookmarked = false;
+        console.log(state.recipe);
+
+}

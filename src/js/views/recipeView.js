@@ -2,6 +2,15 @@ import view from './View.js'
 import icons from 'url:../../img/icons.svg'
 class RecipeView extends view{
     _parentElement = document.querySelector('.showme');
+
+addHandlerBookmark(handler){
+    this._parentElement.addEventListener('click', (e)=> {
+        const btn = e.target.closest('.btn--bookmarkit')
+        if(!btn) return
+        handler()
+    })
+}
+
     
 addHandlerUrlId(handler){
     ['hashchange', 'load'].forEach(ev => {
@@ -25,14 +34,19 @@ addHandlerUrlId(handler){
                 parent.classList.toggle('hidden');
                 prevEl.classList.toggle('hidden');
             }
-        })
-        
+        })  
     }
 
     _generateMarkup(){
         return `<div class="overlay"></div>
                     <div class="show modal">
+
                         <button class="btn--close-modal">&times;</button>
+                        <button class="btn--round btn--bookmarkit">
+                            <svg class="">
+                            <use href="${icons}#icon-bookmark${this._data.bookmarked? '-fill' : ''}"></use>
+                            </svg>
+                        </button>
                         <div class="meal__content">
                             <h2 class="show__name">${this._data.title}</h2>
                             <h3 class="show__category">${this._data.category}</h3>

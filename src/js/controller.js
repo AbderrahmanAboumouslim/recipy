@@ -3,6 +3,7 @@ import searchView from './views/searchView.js';
 import resultView from './views/resultView.js';
 import recipeView from './views/recipeView.js';
 import pagination from './views/pagination.js';
+import bookmarkView from './views/bookmarkView.js';
 
 const controlSearch = async ()=> {
     try{
@@ -45,12 +46,20 @@ const controlUrlId = async ()=> {
         console.error(err);
     }
 }
+
+const controlBookmark = ()=> {
+    if(!model.state.recipe.bookmarked) model.addBookmark(model.state.recipe)
+    else model.removeBookmark(model.state.recipe.id)
+    recipeView.render(model.state.recipe)
+    bookmarkView.render(model.state.bookmarks)
+}
 //
 const init = ()=> {
     searchView.addHandlerSearch(controlSearch)
     resultView.addHandlerShowRecipe(controlShowRecipe)
     pagination.addHandlerPagination(controlPagination)
     recipeView.addHandlerUrlId(controlUrlId)
+    recipeView.addHandlerBookmark(controlBookmark)
 }
 
 init();

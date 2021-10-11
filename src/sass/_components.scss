@@ -36,6 +36,37 @@
   }
 }
 
+.btn--round {
+  position: absolute;
+  top: 1.5rem;
+  left: 1.5rem;
+  background-image: $gradient;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  height: 4.5rem;
+  width: 4.5rem;
+  transition: all 0.2s;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &:hover {
+    transform: scale(1.07);
+  }
+
+  &:focus {
+    outline: none;
+  }
+
+  svg {
+    height: 2.5rem;
+    width: 2.5rem;
+    fill: #fff;
+  }
+}
+
 .hidden {
   display: none;
 }
