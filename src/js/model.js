@@ -70,17 +70,43 @@ export const resultPage = (page = state.search.page)=> {
     return state.search.results.slice(indexStart, indexEnd)
 }
 
-//
+///// BOOKMARK 
+// add bookmark to local storage
+const bookmarkStorage = ()=> {
+    localStorage.setItem('bookmarks', JSON.stringify(state.bookmarks))
+}
+
 export const addBookmark = (recipe)=> {
-    state.bookmarks.push(recipe);
+    try{
+        state.bookmarks.push(recipe);
     if(recipe.id === state.recipe.id) state.recipe.bookmarked = true;
     console.log(state.recipe);
+
+    bookmarkStorage()
+    }catch(err){
+        throw err
+    }
 }
 
 export const removeBookmark = (id)=> {
-    const index = state.bookmarks.some(bookmark => bookmark.id === id)
+    try{const index = state.bookmarks.findIndex(bookmark => bookmark.id === id)
     state.bookmarks.splice(index, 1)
     if(id === state.recipe.id) state.recipe.bookmarked = false;
         console.log(state.recipe);
 
+    bookmarkStorage()
+    }catch(err){
+        throw err
+    }
 }
+
+// display local storage in bookmarks view
+ const bookmarkLoadStorage = ()=> {
+    try{const storage = localStorage.getItem('bookmarks');
+    if(storage) state.bookmarks = JSON.parse(storage)
+ }catch(err){
+     throw err
+ }
+}
+bookmarkLoadStorage()
+///////////////////////

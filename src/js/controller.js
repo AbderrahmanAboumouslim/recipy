@@ -11,6 +11,8 @@ const controlSearch = async ()=> {
         const query = searchView.getQuery();
         if(!query || query === '') return;
         await model.searchResult(query);
+
+        
         // resultView.render(model.state.search.results)
         resultView.render(model.resultPage())
         pagination.render(model.state.search)
@@ -32,6 +34,7 @@ const controlShowRecipe = async (id)=> {
         // console.log(mealItem);
         recipeView.render(model.state.recipe)
         window.history.pushState(null, '', `#${id}`)
+
     }catch(err){
         console.error(err);
     }
@@ -42,6 +45,8 @@ const controlUrlId = async ()=> {
         let id = window.location.hash.slice(1)
         await model.showRecipe(id)
         recipeView.render(model.state.recipe)
+        
+
     }catch(err){
         console.error(err);
     }
@@ -54,12 +59,19 @@ const controlBookmark = ()=> {
     bookmarkView.render(model.state.bookmarks)
 }
 //
+const controlLoadLocalStorageBookmarks = ()=> {
+    bookmarkView.render(model.state.bookmarks)
+    // console.log(model.state.bookmarks);
+}
+
+
 const init = ()=> {
     searchView.addHandlerSearch(controlSearch)
     resultView.addHandlerShowRecipe(controlShowRecipe)
     pagination.addHandlerPagination(controlPagination)
     recipeView.addHandlerUrlId(controlUrlId)
     recipeView.addHandlerBookmark(controlBookmark)
+    bookmarkView.addHandlerLoadStorage(controlLoadLocalStorageBookmarks)
 }
 
 init();

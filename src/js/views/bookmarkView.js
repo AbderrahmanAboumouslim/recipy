@@ -1,8 +1,11 @@
 import view from './View.js'
-import icons from 'url:../../img/icons.svg'
 
 class BookmarkView extends view {
     _parentElement = document.querySelector('.bookmarks__list');
+
+    addHandlerLoadStorage(handler){
+        window.addEventListener('load', handler);
+    }
 
     _generateMarkup(){
         return this._data.map(bookmark => {
@@ -18,7 +21,7 @@ class BookmarkView extends view {
                                     </div>
                                     </a>
                                 </li>`
-        })
+        }).join('')
     }
 }
 export default new BookmarkView();
