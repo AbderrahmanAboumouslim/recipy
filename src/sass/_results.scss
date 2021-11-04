@@ -1,5 +1,10 @@
 .results {
+  margin: auto;
   margin-top: 4rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
 
   &__title {
     font-size: 1.8rem;
@@ -7,6 +12,8 @@
 
   .pagination {
     margin-top: auto;
+    margin-right: auto;
+    margin-left: auto;
     padding: 0 3.5rem;
 
     &::after {
