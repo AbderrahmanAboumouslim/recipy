@@ -19,12 +19,12 @@ class Pagination extends view {
     // ---------------method 2------------------------------
     ////
     const arr = Array.from({ length: numPages });
-    const test = arr.map((_, index) => {
-      return `<button class="btn--inline pagination__btn--next">${
+    const createPagination = arr.map((_, index) => {
+      return `<button class="btn--inline pagination__btn--next" data-page=${
         index + 1
-      }</button>`;
+      }>${index + 1}</button>`;
     });
-    return test;
+    return createPagination;
     /////
 
     // ---------------method 1------------------------------
